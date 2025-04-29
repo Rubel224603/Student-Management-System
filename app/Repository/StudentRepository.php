@@ -10,7 +10,10 @@ use App\StudentRepositoryInterface;
 class StudentRepository implements StudentRepositoryInterface
     {
         public function all(){
-            return Student::all();
+            return Student::latest()->paginate(5);
+
+
+
         }
         public function find($id){
             return Student::find($id);

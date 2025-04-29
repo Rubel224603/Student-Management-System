@@ -27,7 +27,7 @@ class StudentController extends Controller
     public function allStudent(Request $request){
         $students = $this->studentRepo->all();
         if(isset($request->name)){
-            $students = Student::where('name', $request->name)->orWhere('email', $request->name) ->get();
+            $students = Student::where('name', $request->name)->orWhere('email', $request->name)->paginate(5);
         }
         else{
             $students = $this->studentRepo->all();
@@ -41,9 +41,14 @@ class StudentController extends Controller
        return view('admin.student.edit',compact('student'));
     }
     public function update($id,Request $request){
+        $page = $request->input('page');
+        //return $page;
         $this->studentRepo->update($id,$request);
+
         //Student::updateStudent($id,$request);
-        return redirect("/student-list")->with("message"," student info updated successfully");
+        return redirect('/student-list?page=' . $page)->with("update","post updated successfully");
+
+
     }
 
     public function delete($id){

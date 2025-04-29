@@ -20,7 +20,9 @@
                                     <input type="text" id="example-email" name="name" class="form-control mb-2"  style="width:500px !important;" placeholder="search by name or email">
                                     <input type="submit" value="search" class="btn btn-success" style="margin-left:20px !important; " >
                                     <a href="{{route('student.list')}}" class="btn btn-primary" style="margin-left:20px !important;">Clear</a>
+                                    <a href="{{route('student.create')}}" class="btn btn-danger" style="margin-left:20px;">Add Student</a>
                                 </div>
+
 
                             </form>
                             <tr>
@@ -36,9 +38,9 @@
                             </tr>
                             </thead>
                             <tbody>
-                            @foreach($students as $student)
+                            @foreach($students as $key=> $student)
                             <tr>
-                                <td>{{$loop->iteration}}</td>
+                                <td>{{$students->firstItem()+$key}}</td>
                                 <td>
                                    {{$student->name}}
                                 </td>
@@ -46,7 +48,7 @@
                                 <td>  {{$student->phone}}</td>
                                 <td>  {{$student->date_of_birth}}</td>
                                 <td class="text-muted">
-                                    <a href="{{route('student.edit',['id'=>$student->id])}}" class="link-reset fs-20 p-1"> <i
+                                    <a href="{{route('student.edit',['id'=>$student->id,'page'=>request('page')])}}" class="link-reset fs-20 p-1"> <i
                                             class="ri-pencil-line"></i></a>
                                     <a href="{{route('student.delete',['id'=>$student->id])}}" class="link-reset fs-20 p-1"> <i
                                             class="ri-delete-bin-line" onclick="return confirm('Are You Sure?')"></i></a>
@@ -58,7 +60,17 @@
                             </tr>
                             @endforeach
                             </tbody>
+
                         </table>
+
+                        <div class="d-flex justify-content-around mt-5">
+                            <a href="{{$students->previousPageUrl()}}" class="btn btn-primary {{request('page') == '' || request('page') ==1 ?'disabled' :''}}" > Previous</a>
+                            <p>current page: {{request('page') ?:1}}</p>
+                            <a href="{{$students->nextPageUrl()}}" class="btn btn-primary {{$students->onLastPage() ?'disabled' :''}}">Next</a>
+                        </div>
+
+
+
                     </div> <!-- end table-responsive-->
                 </div> <!-- end card body-->
             </div> <!-- end card -->

@@ -43,6 +43,7 @@
                                     <div class="mb-3">
                                         <input type="submit" class="btn btn-primary btn-lg" value="Update">
                                     </div>
+                                    <input type="hidden" name="page" value="{{request('page')}}">
 
 
                                 </form>
