@@ -27,7 +27,7 @@
                             </form>
                             <tr>
                                 <th>Sl</th>
-                                <th>User</th>
+                                <th>Name</th>
                                 <th>Email</th>
                                 <th>Phone</th>
                                 <th>Date of Birth</th>
@@ -53,8 +53,9 @@
                                     <a href="{{route('student.delete',['id'=>$student->id])}}" class="link-reset fs-20 p-1"> <i
                                             class="ri-delete-bin-line" onclick="return confirm('Are You Sure?')"></i></a>
                                 </td>
-                                <td>{{$student->created_at}}</td>
-                                <td>{{$student->updated_at}}</td>
+
+                               <td>{{ $student->created_at->diffForHumans() }}</td>
+                                <td>{{$student->updated_at->diffForHumans() }}</td>
 
 
                             </tr>

@@ -10,11 +10,9 @@ use App\StudentRepositoryInterface;
 class StudentRepository implements StudentRepositoryInterface
     {
         public function all(){
-            return Student::latest()->paginate(5);
-
-
-
+            return Student::latest()->paginate(7);
         }
+
         public function find($id){
             return Student::find($id);
         }
@@ -28,5 +26,9 @@ class StudentRepository implements StudentRepositoryInterface
         public function delete($id){
             return Student::deleteStudent($id);
 
+        }
+        public function search($name){
+            $students = Student::where('name','like', "%{$name}%")->orWhere('email','like' ,"%{$name}%")->paginate();
+            return $students;
         }
 }

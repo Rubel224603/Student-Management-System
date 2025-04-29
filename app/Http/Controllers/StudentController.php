@@ -25,17 +25,22 @@ class StudentController extends Controller
     }
 
     public function allStudent(Request $request){
-        $students = $this->studentRepo->all();
+
+        //$students = $this->studentRepo->all();
+
         if(isset($request->name)){
-            $students = Student::where('name', $request->name)->orWhere('email', $request->name)->paginate(5);
+            $students = $this->studentRepo->search($request->name);
         }
+//        if($request->filled('name')){
+//            $students = $this->studentRepo->search($request->name);
+//            //$students = Student::where('name','like', "%{$request->name}%")->orWhere('email','like' ,"%{$request->name}%")->paginate(5);
+//        }
         else{
             $students = $this->studentRepo->all();
         }
-
-
-        return view('admin.student.list',compact('students'));
+         return view('admin.student.list',compact('students'));
     }
+
     public function edit($id){
         $student =$this->studentRepo->find($id);
        return view('admin.student.edit',compact('student'));
