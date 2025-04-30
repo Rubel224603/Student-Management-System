@@ -27,6 +27,7 @@ class StudentController extends Controller
     public function allStudent(Request $request){
 
         //$students = $this->studentRepo->all();
+        $total = $this->studentRepo->totalStudent();
 
         if(isset($request->name)){
             $students = $this->studentRepo->search($request->name);
@@ -35,10 +36,10 @@ class StudentController extends Controller
 //            $students = $this->studentRepo->search($request->name);
 //            //$students = Student::where('name','like', "%{$request->name}%")->orWhere('email','like' ,"%{$request->name}%")->paginate(5);
 //        }
-        else{
+        else {
             $students = $this->studentRepo->all();
         }
-         return view('admin.student.list',compact('students'));
+         return view('admin.student.list',compact('students','total'));
     }
 
     public function edit($id){

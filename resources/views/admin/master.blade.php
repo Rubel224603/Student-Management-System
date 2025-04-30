@@ -47,7 +47,7 @@
 
 
                 <li class="side-nav-item">
-                    <a href="index.html" class="side-nav-link">
+                    <a href="{{route('dashboard')}}" class="side-nav-link">
                         <span class="menu-icon"><i data-lucide="airplay"></i></span>
                         <span class="menu-text"> Dashboard </span>
 

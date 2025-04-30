@@ -11,6 +11,7 @@ class StudentRepository implements StudentRepositoryInterface
     {
         public function all(){
             return Student::latest()->paginate(7);
+
         }
 
         public function find($id){
@@ -31,4 +32,8 @@ class StudentRepository implements StudentRepositoryInterface
             $students = Student::where('name','like', "%{$name}%")->orWhere('email','like' ,"%{$name}%")->paginate(5)->appends(['name' => $name]);
             return $students;
         }
+        public function totalStudent(){
+            return Student::count();
+        }
+
 }

@@ -64,7 +64,11 @@
                             </tbody>
 
                         </table>
-                        <p class="" style="margin-top:30px;">Total Students:{{$students->total()}}</p>
+                        <p>Total Students: {{ $total }}</p>
+
+                        @if((request('name')))
+                                <p> Total search item {{$students->total()}}</p>
+                        @endif
 
                         <div class="d-flex justify-content-around mt-5">
                             <a href="{{$students->previousPageUrl()}}" class="btn btn-primary {{request('page') == '' || request('page') ==1 ?'disabled' :''}}" > Previous</a>
