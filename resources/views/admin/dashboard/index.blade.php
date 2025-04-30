@@ -21,10 +21,9 @@
     <div class="page-container">
 
         <div class="row row-cols-xxl-4 row-cols-md-2 row-cols-1">
-            <div class="col-md-12 text-center">
+            <div class="col-md-12">
                 <div class="card card-body">
-                       <h1 class="fw-bolder">Welcome To Student Management System</h1>
-
+                      <h1>Welcome to Admin Student Management System</h1>
 
 
                 </div>
@@ -51,24 +50,23 @@
                     </div>
 
                     <div class="card-body p-0">
-                        <div class="bg-light bg-opacity-50 py-1 text-center">
-                            <p class="m-0"><b>895k</b> Active users out of <span class="fw-medium">965k</span>
-                            </p>
-                        </div>
+
 
                         <div class="table-responsive">
                             <table
                                 class="table table-custom table-centered table-sm table-nowrap table-hover mb-0">
                                 <thead>
                                 <tr>
+                                    <th>Profile</th>
                                     <th>Name</th>
-                                    <th>Role</th>
                                     <th>Status</th>
                                     <th>Actions</th>
                                 </tr>
                                 </thead>
                                 <tbody>
+                                @foreach($users as $user)
                                 <tr>
+
                                     <td>
                                         <div class="d-flex align-items-center">
                                             <div class="avatar-md flex-shrink-0 me-2">
@@ -78,10 +76,11 @@
                                                             </span>
                                             </div>
                                             <div>
-                                                <h5 class="fs-14 mt-1">John Doe</h5>
+                                                <h5 class="fs-14 mt-1"></h5>
                                             </div>
                                         </div>
                                     </td>
+                                    <td>{{$user->name}}</td>
                                     <td>
                                         <h5 class="fs-14 mt-1 fw-normal">Administrator</h5>
                                     </td>
@@ -105,159 +104,8 @@
                                         </div>
                                     </td>
                                 </tr>
+                                @endforeach
 
-                                <tr>
-                                    <td>
-                                        <div class="d-flex align-items-center">
-                                            <div class="avatar-md flex-shrink-0 me-2">
-                                                            <span class="avatar-title bg-info-subtle rounded-circle">
-                                                                <img src="{{asset('/')}}admin/assets/images/users/avatar-2.jpg" alt=""
-                                                                     height="26" class="rounded-circle">
-                                                            </span>
-                                            </div>
-                                            <div>
-                                                <h5 class="fs-14 mt-1">Jane Smith</h5>
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <h5 class="fs-14 mt-1 fw-normal">Editor</h5>
-                                    </td>
-                                    <td>
-                                        <h5 class="fs-14 mt-1 fw-normal"><i
-                                                class="ri-circle-fill fs-12 text-warning"></i> Pending</h5>
-                                    </td>
-                                    <td style="width: 30px;">
-                                        <div class="dropdown">
-                                            <a href="#"
-                                               class="dropdown-toggle text-muted drop-arrow-none card-drop p-0"
-                                               data-bs-toggle="dropdown" aria-expanded="false">
-                                                <i class="ri-more-2-fill"></i>
-                                            </a>
-                                            <div class="dropdown-menu dropdown-menu-end">
-                                                <a href="javascript:void(0);" class="dropdown-item">View
-                                                    Profile</a>
-                                                <a href="javascript:void(0);"
-                                                   class="dropdown-item">Activate</a>
-                                            </div>
-                                        </div>
-                                    </td>
-                                </tr>
-
-                                <tr>
-                                    <td>
-                                        <div class="d-flex align-items-center">
-                                            <div class="avatar-md flex-shrink-0 me-2">
-                                                            <span
-                                                                class="avatar-title bg-secondary-subtle rounded-circle">
-                                                                <img src="{{asset('/')}}admin/assets/images/users/avatar-3.jpg" alt=""
-                                                                     height="26" class="rounded-circle">
-                                                            </span>
-                                            </div>
-                                            <div>
-                                                <h5 class="fs-14 mt-1">Michael Brown</h5>
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <h5 class="fs-14 mt-1 fw-normal">Viewer</h5>
-                                    </td>
-                                    <td>
-                                        <h5 class="fs-14 mt-1 fw-normal"><i
-                                                class="ri-circle-fill fs-12 text-danger"></i> Inactive</h5>
-                                    </td>
-                                    <td style="width: 30px;">
-                                        <div class="dropdown">
-                                            <a href="#"
-                                               class="dropdown-toggle text-muted drop-arrow-none card-drop p-0"
-                                               data-bs-toggle="dropdown" aria-expanded="false">
-                                                <i class="ri-more-2-fill"></i>
-                                            </a>
-                                            <div class="dropdown-menu dropdown-menu-end">
-                                                <a href="javascript:void(0);"
-                                                   class="dropdown-item">Activate</a>
-                                                <a href="javascript:void(0);"
-                                                   class="dropdown-item">Delete</a>
-                                            </div>
-                                        </div>
-                                    </td>
-                                </tr>
-
-                                <tr>
-                                    <td>
-                                        <div class="d-flex align-items-center">
-                                            <div class="avatar-md flex-shrink-0 me-2">
-                                                            <span class="avatar-title bg-warning-subtle rounded-circle">
-                                                                <img src="{{asset('/')}}admin/assets/images/users/avatar-4.jpg" alt=""
-                                                                     height="26" class="rounded-circle">
-                                                            </span>
-                                            </div>
-                                            <div>
-                                                <h5 class="fs-14 mt-1">Emily Davis</h5>
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <h5 class="fs-14 mt-1 fw-normal">Manager</h5>
-                                    </td>
-                                    <td>
-                                        <h5 class="fs-14 mt-1 fw-normal"><i
-                                                class="ri-circle-fill fs-12 text-success"></i> Active</h5>
-                                    </td>
-                                    <td style="width: 30px;">
-                                        <div class="dropdown">
-                                            <a href="#"
-                                               class="dropdown-toggle text-muted drop-arrow-none card-drop p-0"
-                                               data-bs-toggle="dropdown" aria-expanded="false">
-                                                <i class="ri-more-2-fill"></i>
-                                            </a>
-                                            <div class="dropdown-menu dropdown-menu-end">
-                                                <a href="javascript:void(0);" class="dropdown-item">View
-                                                    Profile</a>
-                                                <a href="javascript:void(0);"
-                                                   class="dropdown-item">Deactivate</a>
-                                            </div>
-                                        </div>
-                                    </td>
-                                </tr>
-
-                                <tr>
-                                    <td>
-                                        <div class="d-flex align-items-center">
-                                            <div class="avatar-md flex-shrink-0 me-2">
-                                                            <span class="avatar-title bg-danger-subtle rounded-circle">
-                                                                <img src="{{asset('/')}}admin/assets/images/users/avatar-5.jpg" alt=""
-                                                                     height="26" class="rounded-circle">
-                                                            </span>
-                                            </div>
-                                            <div>
-                                                <h5 class="fs-14 mt-1">Robert Taylor</h5>
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <h5 class="fs-14 mt-1 fw-normal">Support</h5>
-                                    </td>
-                                    <td>
-                                        <h5 class="fs-14 mt-1 fw-normal"><i
-                                                class="ri-circle-fill fs-12 text-warning"></i> Pending</h5>
-                                    </td>
-                                    <td style="width: 30px;">
-                                        <div class="dropdown">
-                                            <a href="#"
-                                               class="dropdown-toggle text-muted drop-arrow-none card-drop p-0"
-                                               data-bs-toggle="dropdown" aria-expanded="false">
-                                                <i class="ri-more-2-fill"></i>
-                                            </a>
-                                            <div class="dropdown-menu dropdown-menu-end">
-                                                <a href="javascript:void(0);" class="dropdown-item">View
-                                                    Profile</a>
-                                                <a href="javascript:void(0);"
-                                                   class="dropdown-item">Activate</a>
-                                            </div>
-                                        </div>
-                                    </td>
-                                </tr>
                                 </tbody>
                             </table>
                         </div> <!-- end table-responsive-->

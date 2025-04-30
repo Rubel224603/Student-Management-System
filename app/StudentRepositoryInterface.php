@@ -11,5 +11,5 @@ interface StudentRepositoryInterface
     public function store($request);
     public function update($id,$request);
     public function delete($id);
-    public function search($name);
+    public function search($request);
 }

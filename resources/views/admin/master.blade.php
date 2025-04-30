@@ -438,7 +438,7 @@
                             <img src="{{asset('/')}}admin/assets/images/users/avatar-3.jpg" width="32" class="rounded-circle me-lg-2 d-flex"
                                  alt="user-image">
                             <span class="d-lg-flex flex-column gap-1 d-none">
-                                    <span class="fw-semibold">Samuel</span>
+                                    <span class="fw-semibold">{{Auth::user()->name}}</span>
                                 </span>
                             <i class="ri-arrow-down-s-line d-none d-lg-block align-middle ms-2"></i>
                         </a>
@@ -481,10 +481,15 @@
                             </a>
 
                             <!-- item-->
-                            <a href="javascript:void(0);" class="dropdown-item fw-semibold text-danger">
+                            <a href="#" class="dropdown-item fw-semibold text-danger" onclick="event.preventDefault(); document.getElementById('logoutForm').submit()">
                                 <i class="ri-logout-box-line me-1 fs-16 align-middle"></i>
                                 <span class="align-middle">Sign Out</span>
                             </a>
+
+
+                            <form id="logoutForm" action="{{route('logout')}}" method="POST">
+                                @csrf
+                            </form>
                         </div>
                     </div>
                 </div>

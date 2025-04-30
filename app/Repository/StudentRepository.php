@@ -28,7 +28,7 @@ class StudentRepository implements StudentRepositoryInterface
 
         }
         public function search($name){
-            $students = Student::where('name','like', "%{$name}%")->orWhere('email','like' ,"%{$name}%")->paginate();
+            $students = Student::where('name','like', "%{$name}%")->orWhere('email','like' ,"%{$name}%")->paginate(5)->appends(['name' => $name]);
             return $students;
         }
 }
