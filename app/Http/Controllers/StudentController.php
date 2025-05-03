@@ -19,6 +19,25 @@ class StudentController extends Controller
     }
 
     public function store(Request $request){
+       $request->validate([
+            'name'  => 'required|regex:/^[a-zA-Z\s]+$/|max:255',
+            'email' => 'required|email|unique:students,email',
+            'phone'=>'required|unique:students,phone',
+            'date_of_birth'=>'required'
+            ],
+
+            ['name.required' => "Name  dao .",
+              'name.regex'   => "shudhu okkhor dao .",
+              'name.max'      => "250 er besi na",
+
+                'email.required'=> "Email lagbe",
+                'email.string'=> "sothik kore likhun",
+                'email.unique'=> "eta to ase , notun kore dao",
+
+                'phone.required'=>"Phone Number lagbei",
+                'phone.unique'=>"age theke use hocce notun number add koro",
+
+         ] );
         $this->studentRepo->store($request);
         //Student::addNewStudent($request);
         return back()->with("message","New student added successfully");
