@@ -24,21 +24,34 @@
                                     <div class="mb-3">
                                         <label for="simpleinput" class="form-label">Name</label>
                                         <input type="text" id="simpleinput" class="form-control" name="name" placeholder="Name" value="{{$student->name}}">
+                                        @error('name')
+                                        <p class="text-danger">{{$message}}</p>
+                                        @enderror
                                     </div>
 
                                     <div class="mb-3">
                                         <label for="example-email" class="form-label">Email</label>
                                         <input type="email" id="example-email" name="email" class="form-control" placeholder="Email" value="{{$student->email}}">
+                                        @error('email')
+                                        <p class="text-danger">{{$message}}</p>
+                                        @enderror
                                     </div>
 
                                     <div class="mb-3">
                                         <label for="example-password" class="form-label">Phone</label>
                                         <input type="number" id="example-number" class="form-control" placeholder="phone number" name="phone" value="{{$student->phone}}">
+                                        @error('phone')
+                                        <p class="text-danger">{{$message}}</p>
+                                        @enderror
                                     </div>
 
                                     <div class="mb-3">
                                         <label for="example-date" class="form-label">Date of birth</label>
                                         <input class="form-control" id="example-date" type="date" name="date_of_birth" value="{{$student->date_of_birth}}" >
+
+                                        @error('date_of_birth')
+                                        <p class="text-danger">{{$message}}</p>
+                                        @enderror
                                     </div>
                                     <div class="mb-3">
                                         <input type="submit" class="btn btn-primary btn-lg" value="Update">

@@ -12,7 +12,7 @@
                     <div class="table-responsive-sm">
                         <table class="table table-striped mb-0">
                             <thead>
-                            <p class="text-end text-danger">{{session('message')}}</p>
+                            <p class="text-end text-success">{{session('updateMessage')}}</p>
                             <form action="{{route('student.list')}}" method="GET">
                                 @csrf
                                 <div class="mb-3 d-flex">
