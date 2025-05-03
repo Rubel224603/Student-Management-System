@@ -23,7 +23,9 @@
         <div class="row row-cols-xxl-4 row-cols-md-2 row-cols-1">
             <div class="col-md-12">
                 <div class="card card-body">
-                      <h1>Welcome to Admin Student Management System</h1>
+
+                    <p>  DateTime: {{ now()->timezone('Asia/Dhaka')->format('h:i A, d M Y') }}</p>
+
 
 
                 </div>

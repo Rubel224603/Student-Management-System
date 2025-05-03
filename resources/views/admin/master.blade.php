@@ -86,7 +86,7 @@
             <div class="d-flex align-items-center gap-2">
 
                 <!-- Brand Logo -->
-                <a href="index.html" class="logo">
+                <a href="{{route('dashboard')}}" class="logo">
                         <span class="logo-light">
                             <h2 class="logo-lg text-light">SMS</h2>
                         </span>
